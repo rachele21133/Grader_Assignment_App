@@ -1,0 +1,9 @@
+<div class="home">
+  <h1>Welcome to the Grader Assignment App</h1>
+  <h3>Become a grader or find a grader for your class</h3>
+  <% if !student_signed_in? %>
+  	<li><a class="signup" href="../../students/sign_up">Sign up now!</a></li>
+  	<p/>
+  	<li><%= link_to "Or, Sign In", new_student_session_path%></li>
+  <% end %>
+</div>

@@ -1,0 +1,45 @@
+<header>
+  <div class="header-wrap">
+    <% if student_signed_in? %>
+      <% if current_student.try(:teacher?) %>
+        <a class="logo" href="/">Teacher</a>
+      <% elsif current_student.try(:admin?) %>
+        <a class="logo" href="/">Administrator</a>
+      <% else %>
+        <a class="logo" href="/">Student</a>
+      <% end  %>
+    <% else %>
+      <a class="logo" href="/">Welcome!</a>
+    <% end %>
+    
+    <nav>
+      <ul>
+        <% if student_signed_in? %>
+        <li><%= link_to "Home", root_path%></li>
+        <% if !current_student.try(:admin) and !current_student.try(:teacher)%>
+        <li><%= link_to 'View Applications', applications_path(current_student[:id]) %></li>
+        <% end %>
+        <% if !current_student.try(:admin?) and !current_student.try(:teacher?)  %>
+          <li><%= link_to "New Application", new_application_path%></li>
+        <% end %>
+        
+        <% if current_student.try(:admin?) %>
+          <li><%= link_to "Students", students_path%></li>
+          <li><a href="../../admin_interface/index.html">Admin Interface</a></li>
+        <% end %>
+
+        <% if current_student.try(:teacher?) %>
+          <li><%= link_to "Recommendations", recommendations_path%></li>
+        <% end %>
+
+    	  <li><%= link_to "Courses", courses_path%></li>
+        <li><%= link_to "Sign Out", destroy_student_session_path, method: :delete %></li>
+
+
+        <% else %>
+        <li><%= link_to "Sign In", new_student_session_path%></li>
+	      <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

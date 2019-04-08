@@ -1,0 +1,16 @@
+<% if student_signed_in? %>
+
+	<h1>New Application</h1>
+
+	<%= render 'form', application: @application %>
+
+	<% if current_student.try(:admin?) || current_student.try(:teacher)%>
+	<%= link_to 'Back', applications_path %>
+	<% end %>
+
+
+<% else %>
+  
+  <%= render 'shared/auth_error' =%>
+
+<% end %>

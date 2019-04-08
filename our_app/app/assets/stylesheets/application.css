@@ -1,0 +1,178 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* ------------------------------------------------------------------------- */
+/*  body                                                                     */
+/* ------------------------------------------------------------------------- */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+table, td, th {    
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+}
+
+th {
+  font-size:16px;   
+}
+
+ /* ------------------------------- */
+/*  header                          */
+/* ------------------------------- */
+
+header {
+  background-color: #fff;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.08);
+  height: 62px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+
+.header-wrap {
+  margin: 0 auto;
+  width: 90%;
+}
+
+header .logo {
+  color: rgb(201,28,66);
+  float: left;
+  font-size: 22px;
+  font-weight: 700;
+  padding-top: 0.9em;
+  text-decoration: none;
+}
+
+/* ------------------------------- */
+/*  nav                            */
+/* ------------------------------- */
+
+nav {
+  float: right;
+}
+
+nav ul {
+  clear: both;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0.4em 2em 0 0;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  color: #999;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+nav ul li a:hover {
+  color: #ccc;
+}
+
+nav ul li.current a {
+  color: #39c3bb;
+  color: #999;
+}
+
+nav ul li.current a:hover {
+  color: #ccc;
+}
+
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* ------------------------------- */
+/*  main                           */
+/* ------------------------------- */
+
+main {
+  margin: 0;
+  padding: 2% 10% 50px 8%;
+}
+
+.home {
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 32px;
+  font-weight: normal;
+  padding-top: 3%;
+}
+
+.home h3 {
+  font-size: 18px;
+  font-weight: normal;  
+  padding-top: 2%;
+  margin-bottom: 5%;
+}
+
+.home li {
+  list-style: none;
+  margin-top: 3%;
+}
+
+.home li:last-child {
+  margin-top: 0;
+}
+
+.home a.signup {
+  border: 2px solid #000; 
+  border-radius: 14px; 
+  background-color: #ccc;
+  font-size: 14px;  
+  padding: 1% 2%;
+  color: 000;
+  text-decoration: none;
+}
+
+.link {
+  margin-bottom: 1%;
+}

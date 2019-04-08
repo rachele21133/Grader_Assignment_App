@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<!-- 
+<p>
+  <strong>Student email:</strong>
+  <%= @course.Student_Email %>
+</p> -->
+
+<p>
+  <strong>Course number:</strong>
+  <%= @course.Course_Number %>
+</p>
+
+<p>
+  <strong>Course section:</strong>
+  <%= @course.Course_Section %>
+</p>
+
+<p>
+  <strong>Class day:</strong>
+  <%= @course.Class_Day %>
+</p>
+
+<p>
+  <strong>Class time:</strong>
+  <%= @course.Class_Time %>
+</p>
+
+<p>
+  <strong>Grader needed:</strong>
+  <%= @course.Grader_Needed %>
+</p>
+
+<% if current_student.try(:admin?) %>
+  <%= link_to 'Edit', edit_course_path(@course) %>
+<% end %>
+<%= link_to 'Back', courses_path %>

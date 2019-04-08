@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<% if student_signed_in? && (current_student.email == @recommendation.Instructor_Email || current_student.try(:admin)) %>
+	<p>
+	  <strong>Instructor first name:</strong>
+	  <%= @recommendation.Instructor_First_Name %>
+	</p>
+
+	<p>
+	  <strong>Instructor last name:</strong>
+	  <%= @recommendation.Instructor_Last_Name %>
+	</p>
+
+	<p>
+	  <strong>Instructor middle name:</strong>
+	  <%= @recommendation.Instructor_Middle_Name %>
+	</p>
+
+	<p>
+	  <strong>Instructor Email:</strong>
+	  <%= @recommendation.Instructor_Email %>
+	</p>
+
+	<p>
+	  <strong>Recommended student email:</strong>
+	  <%= @recommendation.Recommended_Student_Email %>
+	</p>
+
+	<p>
+	  <strong>Course section:</strong>
+	  <%= @recommendation.Course_Section %>
+	</p>
+
+	<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+	<% if current_student.try(:admin) %>
+	<%= link_to 'Back', admin_interface_index_path  %>
+	<% else %>
+	<%= link_to 'Back', recommendations_path %>
+	<% end %>
+
+<% else %>
+	
+	<%= render 'shared/auth_error' =%>
+
+<% end %>

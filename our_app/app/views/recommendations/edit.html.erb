@@ -1,0 +1,19 @@
+<% if (student_signed_in? && (current_student.email == @recommendation.Instructor_Email)) || current_student.try(:admin?)%>
+
+	<h1>Editing Recommendation</h1>
+
+	<%= render 'form', recommendation: @recommendation %>
+
+	<%= link_to 'Show', @recommendation %> |
+	<% if current_student.try(:admin) %>
+	<%= link_to 'Back', admin_interface_index_path  %>
+	<% else %>
+	<%= link_to 'Back', recommendations_path %>
+	<% end %>
+
+<% else %>
+
+	<%= render 'shared/auth_error' =%>
+
+<% end %>
+

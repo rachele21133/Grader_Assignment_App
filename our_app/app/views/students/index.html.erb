@@ -1,0 +1,23 @@
+<% if current_student.try(:admin?) %>
+  <h1>Students</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |std| %>
+        <tr>
+          <td><%= std.email %></td>
+          <td><%= link_to "Destroy", std, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  
+  <%= render 'shared/auth_error' =%>
+
+<% end %>

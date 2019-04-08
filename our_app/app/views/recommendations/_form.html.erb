@@ -1,0 +1,60 @@
+<%= form_with(model: recommendation, local: true) do |form| %>
+  <% if recommendation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>
+
+      <ul>
+      <% recommendation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--
+ <div class="field">
+    <%= form.label :Teacher_Id %>
+    <%= form.text_field :Teacher_Id %>
+  </div>
+-->
+
+  <div class="field">
+    <%= form.label :Instructor_First_Name %>
+    <%= form.text_field :Instructor_First_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Instructor_Last_Name %>
+    <%= form.text_field :Instructor_Last_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Instructor_Middle_Name %>
+    <%= form.text_field :Instructor_Middle_Name %>
+  </div>
+
+  <% if current_student.try(:admin?) %>
+    <div class="field">
+      <%= form.label "Instructor Email"%>
+      <%= form.text_field :Instructor_Email %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= form.label "Instructor Email"%>
+      <%= form.text_field :Instructor_Email, :value => current_student.email, :readonly => "true" %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Recommended_Student_Email %>
+    <%= form.text_field :Recommended_Student_Email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Course_Section %>
+    <%= form.text_field :Course_Section %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

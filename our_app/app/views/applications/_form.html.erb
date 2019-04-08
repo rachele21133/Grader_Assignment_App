@@ -1,0 +1,71 @@
+<%= form_with(model: application, local: true) do |form| %>
+  <% if application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h2>
+
+      <ul>
+      <% application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :First_Name %>
+    <%= form.text_field :First_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Last_Name %>
+    <%= form.text_field :Last_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Middle_Name %>
+    <%= form.text_field :Middle_Name %>
+  </div>
+
+  <% if current_student.try(:admin?) %>
+    <div class="field">
+      <%= form.label :Student_Email %>
+      <%= form.text_field :Student_Email %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= form.label :Student_Email %>
+      <%= form.text_field :Student_Email, :value => current_student.email, :readonly => true %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Phone_Number %>
+    <%= form.text_field :Phone_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Grading_Preference %>
+    <%= form.text_field :Grading_Preference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Start_Time %>
+    <%= form.text_field :Start_Time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :End_Time %>
+    <%= form.text_field :End_Time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Days %>
+    <%= form.text_field :Days %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  
+<% end %>

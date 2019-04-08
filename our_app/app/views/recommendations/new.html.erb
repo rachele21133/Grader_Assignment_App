@@ -1,0 +1,17 @@
+<% if current_student.try(:admin?) || current_student.try(:teacher?) %>
+	
+	<h1>New Recommendation</h1>
+
+	<%= render 'form', recommendation: @recommendation %>
+
+	<% if current_student.try(:admin) %>
+	<%= link_to 'Back', admin_interface_index_path  %>
+	<% else %>
+	<%= link_to 'Back', recommendations_path %>
+	<% end %>
+
+<<% else %>
+
+	<%= render 'shared/auth_error' =%>
+
+<% end %>
